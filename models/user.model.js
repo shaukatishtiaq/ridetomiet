@@ -14,8 +14,8 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    phone: {
-        type: String,
-        required: false
-    },
 });
+
+const userModel = mongoose.model('User', userSchema);
+
+module.exports = userModel;
