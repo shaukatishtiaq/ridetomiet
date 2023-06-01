@@ -5,7 +5,6 @@ async function configExpressApp(app) {
 
     app.use(express.json());
     app.use('/user/', userRouter);
-    return app;
 }
 
 module.exports = {
