@@ -1,12 +1,16 @@
 require('dotenv').config();
 
-const { userRouter } = require('./routes')
+const { expressConfig } = require('./config');
 
 const express = require('express');
 const app = express();
 
-app.use(express.json());
+async function createExpressApp() {
+    await expressConfig.configExpressApp(app);
 
-app.use('/user/', userRouter);
+    app.listen(process.env.PORT, () => {
+        console.log("Server is up");
+    });
+}
 
-app.listen(process.env.PORT);
+createExpressApp();
