@@ -2,8 +2,15 @@ const express = require('express');
 
 const { dbUtils } = require('../utils');
 
-function getUserFromdb(req, res, next) {
-    res.json(req.params);
+async function getUserFromdb(req, res, next) {
+    const data = await dbUtils.getUserFromdb(req.body);
+
+    if (data == null) {
+        res.status(301).json({ message: "User not found" });
+    }
+    else {
+        res.json(data);
+    }
 }
 
 async function postUserTodb(req, res, next) {
