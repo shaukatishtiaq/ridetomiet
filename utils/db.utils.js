@@ -24,14 +24,14 @@ async function addUserTodb(data) {
 }
 
 async function getUserFromdb(data) {
-    const { email, password } = data;
+    const { email } = data;
 
     try {
         const foundUser = await user.findOne({ 'email': email });
         return foundUser;
     }
     catch (error) {
-        console.error(error, 'HELLLLooooo');
+        console.error(error, 'No user by the entered email');
     }
 }
 
