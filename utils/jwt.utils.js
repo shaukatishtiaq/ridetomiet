@@ -7,14 +7,21 @@ async function generateToken(user) {
         userId: user._id,
         email: user.email
     };
-
-
-    return token = await jwt.sign(payload, secretKey, { expiresIn: '24h' });
+    try {
+        return await jwt.sign(payload, secretKey, { expiresIn: '24h' });
+    }
+    catch (err) {
+        console.error(err.message, " genereateToken in jwt.utils error.");
+    }
 }
 
 async function decodeToken(token) {
-    const decodedToken = await jwt.verify(token, secretKey);
-    return decodedToken;
+    try {
+        return await jwt.verify(token, secretKey);
+    }
+    catch (err) {
+        console.error(err.message, " error in decodeToken() in jwt.utils");
+    }
 }
 
 module.exports = {
