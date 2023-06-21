@@ -3,6 +3,7 @@ const { userController } = require('../controllers');
 
 router.post('/login', userController.loginUser);
 router.post('/signup', userController.signupUser);
+router.get('/logout', userController.logoutUser);
 
 // router.get('/', (req, res) => {
 //     console.log(req.cookies);

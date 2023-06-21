@@ -51,7 +51,18 @@ async function signupUser(req, res, next) {
     res.json(data);
 }
 
+async function logoutUser(req, res, next) {
+    if (req.cookies.credentials) {
+        res.clearCookie('credentials');
+        res.json({ message: "You have been logged out." });
+    }
+    else {
+        res.json({ message: "You need to log in to logout idiot." });
+    }
+}
+
 module.exports = {
     loginUser,
-    signupUser
+    signupUser,
+    logoutUser,
 }
