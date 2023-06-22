@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 
-const { userRouter } = require('../routes');
+const { userRouter, postRouter } = require('../routes');
 
 async function configExpressApp(app) {
 
@@ -9,6 +9,7 @@ async function configExpressApp(app) {
     app.use(cookieParser());
 
     app.use('/user/', userRouter);
+    app.use('/post/', postRouter);
 }
 
 module.exports = {

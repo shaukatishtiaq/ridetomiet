@@ -14,6 +14,19 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    posts: [
+        {
+            source: {
+                type: Number,
+            },
+            destination: {
+                type: Number,
+            },
+            amount: {
+                type: Number,
+            }
+        }
+    ]
     // rides: [{id, source, destination, time_at_posting_the_ride, estimated_time_to_reach_destination,amount, isDriver}]
 });
 

@@ -11,6 +11,7 @@ async function checkIfPasswordMatches(password, hashedPassword) {
 
     return bcrypt.compare(password, hashedPassword);
 }
+
 module.exports = {
     encryptPassword,
     checkIfPasswordMatches
